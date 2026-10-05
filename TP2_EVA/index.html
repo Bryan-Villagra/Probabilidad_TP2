@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EVA interactivo - Segundo Trabajo Práctico de Probabilidad">
+  <title>EVA | Segundo Trabajo Práctico de Probabilidad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+
+  <header class="topbar">
+    <a href="#inicio" class="brand">
+      <span class="brand-icon">P</span>
+      <span>
+        <strong>Probabilidad</strong>
+        <small>Segundo Trabajo Práctico</small>
+      </span>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+
+    <nav id="menu">
+      <a href="#inicio">Inicio</a>
+      <a href="#m1">1. Espacio muestral</a>
+      <a href="#m2">2. Conteo</a>
+      <a href="#m3">3. Eventos</a>
+      <a href="#m4">4. Condicional</a>
+      <a href="#m5">5. Variables</a>
+      <a href="#m6">6. Conjunta</a>
+      <a href="#quiz">Desafío final</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero section">
+      <div class="hero-copy">
+        <span class="eyebrow">ENTORNO VIRTUAL DE APRENDIZAJE</span>
+        <h1>Probabilidad<br><span>en acción</span></h1>
+        <p>
+          Un recorrido visual e interactivo por los ejercicios del Segundo Trabajo Práctico:
+          espacio muestral, combinatoria, eventos, probabilidad condicional, Bayes,
+          variables aleatorias y distribución conjunta.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#m1">Comenzar recorrido</a>
+          <button class="btn ghost speak-btn"
+                  data-speak="Bienvenidos al entorno virtual de aprendizaje del segundo trabajo práctico de Probabilidad. Desarrollado por Gomez Segura Ana Isabel, Villagra Brian Gustavo y Rios Luz Morena,
+                  mediante la utilizacion de material teórico y herramientas de Inteligencia Artificial.
+                  El recorrido incluye seis módulos con explicaciones, ejemplos y actividades interactivas.">
+            🔊 Escuchar introducción
+          </button>
+        </div>
+
+        <div class="group-box">
+          <span>TRABAJO GRUPAL · 2026</span>
+          <strong>Integrantes:<br>Gomez Segura, Ana Isabel <br> Villagra, Brian Gustavo <br> Ríos, Luz Morena</strong>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="float-card c1">P(A<sup>c</sup>)</div>
+        <div class="float-card c2">P(B₂ | D)</div>
+        <div class="float-card c3">F(x)</div>
+        <div class="float-card c4">P(X,Y)</div>
+        <div class="dice-face">
+          <span>●</span><span>●</span><span>●</span>
+          <span>●</span><span>●</span><span>●</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section overview">
+      <div class="section-heading">
+        <span class="eyebrow">RUTA DE APRENDIZAJE</span>
+        <h2>Seis estaciones, un mismo recorrido</h2>
+        <p>
+          Cada módulo parte de una consigna del práctico y muestra la idea, el procedimiento,
+          el resultado y una pequeña interacción para comprobar la comprensión.
+        </p>
+      </div>
+
+      <div class="module-map">
+        <a href="#m1"><b>01</b><span>Espacio muestral</span></a>
+        <a href="#m2"><b>02</b><span>Principios de conteo</span></a>
+        <a href="#m3"><b>03</b><span>Eventos y complementos</span></a>
+        <a href="#m4"><b>04</b><span>Condicional, total y Bayes</span></a>
+        <a href="#m5"><b>05</b><span>Variables aleatorias</span></a>
+        <a href="#m6"><b>06</b><span>Distribución conjunta</span></a>
+      </div>
+    </section>
+
+    <!-- MÓDULO 1 -->
+    <section id="m1" class="section alt">
+      <div class="section-heading">
+        <span class="eyebrow">MÓDULO 1</span>
+        <h2>Espacio muestral</h2>
+        <p>
+          El espacio muestral reúne todos los resultados posibles de un experimento aleatorio.
+          La clave es describirlos sin omitir ni repetir casos.
+        </p>
+      </div>
+
+      <div class="split-grid">
+        <article class="problem-card">
+          <div class="problem-number">1A</div>
+          <h3>Dado + moneda</h3>
+          <p>Se arroja un dado y una moneda simultáneamente.</p>
+
+          <div class="visual-pair">
+            <div class="big-die" id="dieValue">⚄</div>
+            <div class="big-coin" id="coinValue">C</div>
+          </div>
+
+          <button class="btn small primary" id="simulateDieCoin">Simular lanzamiento</button>
+          <div class="sim-result" id="dieCoinResult">Probá una combinación.</div>
+
+          <details>
+            <summary>Ver espacio muestral completo</summary>
+            <div class="sample-space">
+              (1,C), (1,S), (2,C), (2,S), (3,C), (3,S),<br>
+              (4,C), (4,S), (5,C), (5,S), (6,C), (6,S)
+            </div>
+            <p><strong>Total:</strong> 6 × 2 = <strong>12 resultados posibles</strong>.</p>
+          </details>
+        </article>
+
+        <article class="problem-card">
+          <div class="problem-number">1B</div>
+          <h3>Tres artículos: defectuoso o no defectuoso</h3>
+          <p>
+            Cada artículo puede clasificarse como <strong>D</strong> (defectuoso)
+            o <strong>N</strong> (no defectuoso).
+          </p>
+
+          <div class="binary-tree">
+            <div class="tree-level">
+              <span>D</span><span>N</span>
+            </div>
+            <div class="tree-result-grid">
+              <span>DDD</span><span>DDN</span><span>DND</span><span>DNN</span>
+              <span>NDD</span><span>NDN</span><span>NND</span><span>NNN</span>
+            </div>
+          </div>
+
+          <div class="formula-pill">2³ = 8 resultados</div>
+
+          <button class="btn small ghost speak-btn"
+                  data-speak="Para tres artículos, cada uno tiene dos clasificaciones posibles: defectuoso o no defectuoso. Por eso hay dos elevado a tres, es decir, ocho resultados posibles.">
+            🔊 Escuchar explicación
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <!-- MÓDULO 2 -->
+    <section id="m2" class="section">
+      <div class="section-heading">
+        <span class="eyebrow">MÓDULO 2</span>
+        <h2>Principios de conteo</h2>
+        <p>
+          Antes de calcular una probabilidad, muchas veces necesitamos saber
+          cuántas posibilidades existen.
+        </p>
+      </div>
+
+      <div class="two-col">
+        <article class="solution-card">
+          <div class="solution-head">
+            <span>2A</span>
+            <h3>Reina y princesas</h3>
+          </div>
+          <p>
+            Hay 5 finalistas y se eligen 3 cargos diferentes. Como el orden importa,
+            usamos una <strong>variación sin repetición</strong>.
+          </p>
+
+          <div class="step-flow">
+            <div><span>Reina</span><strong>5</strong></div>
+            <i>×</i>
+            <div><span>1.ª princesa</span><strong>4</strong></div>
+            <i>×</i>
+            <div><span>2.ª princesa</span><strong>3</strong></div>
+          </div>
+
+          <div class="result-banner">5 × 4 × 3 = <strong>60 posibilidades</strong></div>
+        </article>
+
+        <article class="solution-card">
+          <div class="solution-head">
+            <span>2B</span>
+            <h3>Pantalones y camisas</h3>
+          </div>
+          <p>
+            Para cada uno de los 6 pantalones se puede elegir cualquiera de las 4 camisas.
+            Aplicamos el <strong>principio multiplicativo</strong>.
+          </p>
+
+          <div class="closet">
+            <div>
+              <span>👖</span>
+              <strong>6</strong>
+              <small>pantalones</small>
+            </div>
+            <span class="times">×</span>
+            <div>
+              <span>👕</span>
+              <strong>4</strong>
+              <small>camisas</small>
+            </div>
+          </div>
+
+          <div class="result-banner">6 × 4 = <strong>24 formas de vestirse</strong></div>
+        </article>
+      </div>
+
+      <div class="micro-activity">
+        <span class="eyebrow">MINI DESAFÍO</span>
+        <h3>Si hubiera 7 pantalones y 3 camisas, ¿cuántas combinaciones habría?</h3>
+        <div class="inline-answer">
+          <input type="number" id="countAnswer" placeholder="Tu respuesta">
+          <button class="btn small primary" id="checkCount">Comprobar</button>
+          <span id="countFeedback"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- MÓDULO 3 -->
+    <section id="m3" class="section alt">
+      <div class="section-heading">
+        <span class="eyebrow">MÓDULO 3</span>
+        <h2>Eventos mutuamente excluyentes</h2>
+        <p>
+          Si dos eventos son mutuamente excluyentes, no pueden ocurrir al mismo tiempo:
+          <strong>P(A ∩ B) = 0</strong>.
+        </p>
+      </div>
+
+      <div class="venn-area">
+        <div class="venn">
+          <div class="circle a">A<br><small>0,37</small></div>
+          <div class="circle b">B<br><small>0,44</small></div>
+        </div>
+
+        <div class="venn-explain">
+          <p>P(A) = 0,37</p>
+          <p>P(B) = 0,44</p>
+          <p>Como A y B no se superponen, P(A ∪ B) = 0,37 + 0,44 = 0,81.</p>
+        </div>
+      </div>
+
+      <div class="answer-grid three">
+        <article>
+          <span>a)</span>
+          <h3>P(A<sup>c</sup>)</h3>
+          <p>Usamos el complemento:</p>
+          <div class="math">1 − 0,37 = <strong>0,63</strong></div>
+        </article>
+
+        <article>
+          <span>b)</span>
+          <h3>P(A ∩ B)</h3>
+          <p>Son mutuamente excluyentes:</p>
+          <div class="math"><strong>0</strong></div>
+        </article>
+
+        <article>
+          <span>c)</span>
+          <h3>P(A<sup>c</sup> ∩ B<sup>c</sup>)</h3>
+          <p>Es el complemento de A ∪ B:</p>
+          <div class="math">1 − 0,81 = <strong>0,19</strong></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- MÓDULO 4 -->
+    <section id="m4" class="section">
+      <div class="section-heading">
+        <span class="eyebrow">MÓDULO 4</span>
+        <h2>Probabilidad condicional, total y Bayes</h2>
+        <p>
+          Tres situaciones para distinguir qué fórmula utilizar según la información disponible.
+        </p>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" data-target="condicional">4A · Condicional</button>
+        <button class="tab" data-target="total">4B · Total</button>
+        <button class="tab" data-target="bayes">4C · Bayes</button>
+      </div>
+
+      <div id="condicional" class="tab-panel active">
+        <div class="prob-layout">
+          <div>
+            <span class="eyebrow">CAJA CON 10 PAPELES</span>
+            <h3>Segundo azul sabiendo que el primero fue rojo</h3>
+            <p>
+              Al principio hay 3 rojos y 7 azules. Como ya salió un rojo y no se repone,
+              quedan 9 papeles: <strong>2 rojos y 7 azules</strong>.
+            </p>
+            <div class="math large">P(Azul₂ | Rojo₁) = 7/9 ≈ <strong>0,7778</strong></div>
+            <div class="percent">≈ 77,78 %</div>
+          </div>
+
+          <div class="paper-box">
+            <span class="paper red"></span><span class="paper red"></span>
+            <span class="paper blue"></span><span class="paper blue"></span>
+            <span class="paper blue"></span><span class="paper blue"></span>
+            <span class="paper blue"></span><span class="paper blue"></span>
+            <span class="paper blue"></span>
+          </div>
+        </div>
+      </div>
+
+      <div id="total" class="tab-panel">
+        <div class="provider-tree">
+          <div class="tree-origin">Regulador</div>
+          <div class="branch-line"></div>
+          <div class="provider b1">
+            <strong>B1</strong><span>75 %</span>
+            <small>92 % funciona</small>
+          </div>
+          <div class="provider b2">
+            <strong>B2</strong><span>25 %</span>
+            <small>90 % funciona</small>
+          </div>
+        </div>
+
+        <div class="formula-box">
+          <p>P(Funciona) = P(B1)·P(F|B1) + P(B2)·P(F|B2)</p>
+          <p>= 0,75·0,92 + 0,25·0,90</p>
+          <strong>= 0,915 = 91,5 %</strong>
+        </div>
+      </div>
+
+      <div id="bayes" class="tab-panel">
+        <div class="bayes-card">
+          <span class="eyebrow">AHORA SABEMOS QUE ES DEFECTUOSO</span>
+          <h3>¿Cuál es la probabilidad de que provenga de B2?</h3>
+          <div class="math-block">
+            <span>P(B2 | D) =</span>
+            <div class="fraction">
+              <span>0,25 · 0,10</span>
+              <span>0,75 · 0,08 + 0,25 · 0,10</span>
+            </div>
+          </div>
+          <div class="result-banner">= 0,2941 ≈ <strong>29,41 %</strong></div>
+          <p class="note">
+            Bayes “invierte” la condición: partimos de que el regulador es defectuoso
+            y buscamos de qué proveedor es más probable que haya venido.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MÓDULO 5 -->
+    <section id="m5" class="section alt">
+      <div class="section-heading">
+        <span class="eyebrow">MÓDULO 5</span>
+        <h2>Variables aleatorias</h2>
+        <p>
+          Una situación continua y otra discreta. En ambos casos identificamos la variable,
+          su recorrido y las probabilidades solicitadas.
+        </p>
+      </div>
+
+      <div class="variable-switch">
+        <button class="var-btn active" data-var="continua">5A · Continua</button>
+        <button class="var-btn" data-var="discreta">5B · Discreta</button>
+      </div>
+
+      <div id="continua" class="var-panel active">
+        <div class="variable-header">
+          <div>
+            <span class="type-badge">VARIABLE CONTINUA</span>
+            <h3>X = tiempo entre dos llegadas consecutivas a una tienda</h3>
+            <p>Recorrido: <strong>X ∈ (0, ∞)</strong></p>
+          </div>
+          <div class="density-formula">
+            f(x) = ½ e<sup>−x/2</sup>, &nbsp; x &gt; 0
+          </div>
+        </div>
+
+        <div class="steps-stack">
+          <article>
+            <span>1</span>
+            <div>
+              <h4>Constante K</h4>
+              <p>Para que sea una densidad, el área total debe ser 1.</p>
+              <div class="math">∫₀<sup>∞</sup> K e<sup>−x/2</sup> dx = 1 ⟹ <strong>K = 1/2</strong></div>
+            </div>
+          </article>
+
+          <article>
+            <span>2</span>
+            <div>
+              <h4>Función de distribución acumulada</h4>
+              <div class="piecewise">
+                F(x) = 0, si x ≤ 0<br>
+                F(x) = 1 − e<sup>−x/2</sup>, si x &gt; 0
+              </div>
+            </div>
+          </article>
+
+          <article>
+            <span>3</span>
+            <div>
+              <h4>P(2 &lt; X &lt; 6)</h4>
+              <div class="math">
+                F(6) − F(2) = e<sup>−1</sup> − e<sup>−3</sup>
+                ≈ <strong>0,3181</strong>
+              </div>
+              <small>≈ 31,81 %</small>
+            </div>
+          </article>
+
+          <article>
+            <span>4</span>
+            <div>
+              <h4>P(X ≤ 8)</h4>
+              <div class="math">
+                F(8) = 1 − e<sup>−4</sup> ≈ <strong>0,9817</strong>
+              </div>
+              <small>≈ 98,17 %</small>
+            </div>
+          </article>
+        </div>
+
+        <div class="curve-wrap">
+          <svg viewBox="0 0 700 260" class="density-svg" role="img" aria-label="Curva de densidad exponencial">
+            <line x1="55" y1="220" x2="660" y2="220" class="axis-line"/>
+            <line x1="55" y1="220" x2="55" y2="30" class="axis-line"/>
+            <path d="M55 45 C115 82, 160 120, 230 158 C320 196, 440 211, 660 219"
+                  class="density-line"/>
+            <path d="M170 127 C205 146, 260 174, 410 204 L410 220 L170 220 Z"
+                  class="density-fill"/>
+            <line x1="170" y1="220" x2="170" y2="127" class="guide"/>
+            <line x1="410" y1="220" x2="410" y2="204" class="guide"/>
+            <text x="163" y="242">2</text>
+            <text x="403" y="242">6</text>
+            <text x="638" y="242">x</text>
+            <text x="26" y="40">f(x)</text>
+          </svg>
+          <p>El área sombreada representa P(2 &lt; X &lt; 6).</p>
+        </div>
+      </div>
+
+      <div id="discreta" class="var-panel">
+        <div class="variable-header">
+          <div>
+            <span class="type-badge">VARIABLE DISCRETA</span>
+            <h3>X = puntos obtenidos al lanzar un dado</h3>
+            <p>Recorrido: <strong>{1, 2, 3, 4, 5, 6}</strong></p>
+          </div>
+          <div class="density-formula">P(X = x) = 1/6</div>
+        </div>
+
+        <div class="dice-distribution">
+          <div><span>⚀</span><small>1/6</small></div>
+          <div><span>⚁</span><small>1/6</small></div>
+          <div><span>⚂</span><small>1/6</small></div>
+          <div><span>⚃</span><small>1/6</small></div>
+          <div><span>⚄</span><small>1/6</small></div>
+          <div><span>⚅</span><small>1/6</small></div>
+        </div>
+
+        <div class="answer-grid three">
+          <article>
+            <h3>P(2 &lt; X &lt; 6)</h3>
+            <p>Valores: 3, 4 y 5.</p>
+            <div class="math">3/6 = <strong>0,5</strong></div>
+          </article>
+          <article>
+            <h3>P(X ≤ 4)</h3>
+            <p>Valores: 1, 2, 3 y 4.</p>
+            <div class="math">4/6 = <strong>2/3</strong></div>
+          </article>
+          <article>
+            <h3>P(X &gt; 2)</h3>
+            <p>Valores: 3, 4, 5 y 6.</p>
+            <div class="math">4/6 = <strong>2/3</strong></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MÓDULO 6 -->
+    <section id="m6" class="section">
+      <div class="section-heading">
+        <span class="eyebrow">MÓDULO 6</span>
+        <h2>Distribución de probabilidad conjunta</h2>
+        <p>
+          Cada celda representa P(X = x, Y = y). Los espacios vacíos del cuerpo de la tabla
+          valen 0 porque las probabilidades dadas ya suman 1.
+        </p>
+      </div>
+
+      <div class="joint-wrap">
+        <table class="joint-table">
+          <thead>
+            <tr>
+              <th>Y \ X</th>
+              <th>0</th>
+              <th>1</th>
+              <th>2</th>
+              <th>Total Y</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>0</th>
+              <td>1/12</td>
+              <td>1/6</td>
+              <td>1/24</td>
+              <td class="total">7/24</td>
+            </tr>
+            <tr>
+              <th>1</th>
+              <td>1/4</td>
+              <td>1/4</td>
+              <td>1/40</td>
+              <td class="total">21/40</td>
+            </tr>
+            <tr>
+              <th>2</th>
+              <td class="highlight" id="cellX0Y2">1/8</td>
+              <td class="highlight" id="cellX1Y2">1/20</td>
+              <td>0</td>
+              <td class="total">7/40</td>
+            </tr>
+            <tr>
+              <th>3</th>
+              <td>1/120</td>
+              <td>0</td>
+              <td>0</td>
+              <td class="total">1/120</td>
+            </tr>
+            <tr class="total-row">
+              <th>Total X</th>
+              <td>7/15</td>
+              <td>7/15</td>
+              <td>1/15</td>
+              <td>1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="answer-grid two">
+        <article>
+          <span>a)</span>
+          <h3>P(X = 1 ; Y = 2)</h3>
+          <p>Se busca directamente la celda correspondiente.</p>
+          <div class="math"><strong>1/20 = 0,05</strong></div>
+        </article>
+
+        <article>
+          <span>b)</span>
+          <h3>P(X = 0 ; 1 ≤ Y &lt; 3)</h3>
+          <p>Como 1 ≤ Y &lt; 3, se suman los casos Y = 1 e Y = 2 con X = 0.</p>
+          <div class="math">1/4 + 1/8 = <strong>3/8 = 0,375</strong></div>
+        </article>
+      </div>
+
+      <div class="micro-activity">
+        <span class="eyebrow">LECTURA DE TABLA</span>
+        <h3>¿Cuál es P(X = 2)?</h3>
+        <div class="choice-row">
+          <button class="choice" data-joint="wrong">7/15</button>
+          <button class="choice" data-joint="correct">1/15</button>
+          <button class="choice" data-joint="wrong">7/24</button>
+        </div>
+        <p id="jointFeedback"></p>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="quiz" class="section alt">
+      <div class="section-heading">
+        <span class="eyebrow">DESAFÍO FINAL</span>
+        <h2>¿Cuánto recordás?</h2>
+        <p>Seis preguntas, una por cada módulo. El resultado se corrige automáticamente.</p>
+      </div>
+
+      <form id="quizForm" class="quiz-form">
+        <fieldset class="question" data-correct="c">
+          <legend>1. ¿Cuántos resultados hay al lanzar un dado y una moneda simultáneamente?</legend>
+          <label><input type="radio" name="q1" value="a"> 6</label>
+          <label><input type="radio" name="q1" value="b"> 8</label>
+          <label><input type="radio" name="q1" value="c"> 12</label>
+        </fieldset>
+
+        <fieldset class="question" data-correct="b">
+          <legend>2. ¿Cuántas formas hay de combinar 6 pantalones con 4 camisas?</legend>
+          <label><input type="radio" name="q2" value="a"> 10</label>
+          <label><input type="radio" name="q2" value="b"> 24</label>
+          <label><input type="radio" name="q2" value="c"> 30</label>
+        </fieldset>
+
+        <fieldset class="question" data-correct="a">
+          <legend>3. Si A y B son mutuamente excluyentes, P(A ∩ B) es…</legend>
+          <label><input type="radio" name="q3" value="a"> 0</label>
+          <label><input type="radio" name="q3" value="b"> P(A)+P(B)</label>
+          <label><input type="radio" name="q3" value="c"> 1</label>
+        </fieldset>
+
+        <fieldset class="question" data-correct="c">
+          <legend>4. ¿Qué teorema permite calcular P(B2 | Defectuoso)?</legend>
+          <label><input type="radio" name="q4" value="a"> Complemento</label>
+          <label><input type="radio" name="q4" value="b"> Regla de Laplace</label>
+          <label><input type="radio" name="q4" value="c"> Bayes</label>
+        </fieldset>
+
+        <fieldset class="question" data-correct="b">
+          <legend>5. El tiempo entre llegadas es una variable…</legend>
+          <label><input type="radio" name="q5" value="a"> discreta</label>
+          <label><input type="radio" name="q5" value="b"> continua</label>
+          <label><input type="radio" name="q5" value="c"> cualitativa</label>
+        </fieldset>
+
+        <fieldset class="question" data-correct="a">
+          <legend>6. En una tabla conjunta, P(X=x,Y=y) se obtiene…</legend>
+          <label><input type="radio" name="q6" value="a"> leyendo la celda correspondiente</label>
+          <label><input type="radio" name="q6" value="b"> sumando siempre toda la fila</label>
+          <label><input type="radio" name="q6" value="c"> multiplicando todos los totales</label>
+        </fieldset>
+
+        <div class="quiz-actions">
+          <button class="btn primary" type="submit">Corregir</button>
+          <button class="btn ghost" type="button" id="resetQuiz">Reintentar</button>
+        </div>
+      </form>
+
+      <div id="quizResult" class="quiz-result"></div>
+    </section>
+
+    <section class="section ia-note">
+      <div class="ia-card">
+        <div>
+          <span class="eyebrow">USO DE IA</span>
+          <h2>Inteligencia Artificial como apoyo</h2>
+        </div>
+        <p>
+          La IA se utilizó para apoyar la organización visual del contenido, transformar las
+          consignas y resoluciones en una experiencia interactiva, generar estructuras de
+          HTML, CSS y JavaScript y revisar la presentación. Los procedimientos matemáticos
+          fueron incorporados al EVA como parte de la resolución del práctico.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <strong>Segundo Trabajo Práctico de Probabilidad</strong>
+      <span>Unidades 1 y 2 · EVA interactivo · 2026</span>
+    </div>
+    <a href="#inicio">Volver al inicio ↑</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
